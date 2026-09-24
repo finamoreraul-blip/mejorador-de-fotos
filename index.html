@@ -2,92 +2,119 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AURA Studio • Mejorar Producto</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aura Product Studio PRO</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:wght@600&display=swap" rel="stylesheet">
 <style>
-  *{box-sizing:border-box;margin:0}
-  body{font-family:'Inter',sans-serif;background:radial-gradient(1200px 800px at 50% -10%, #fff8f0 0%, #faf6f1 40%, #f2ece5 100%);min-height:100vh;color:#2b2118;display:flex;flex-direction:column;align-items:center;padding:32px 18px}
- .brand{font-family:'Cormorant Garamond',serif;font-size:34px;letter-spacing:6px;font-weight:600}
- .brand span{color:#c9a27a}
- .sub{font-size:13px;letter-spacing:3px;text-transform:uppercase;color:#9a8a7a;margin-top:6px}
- .card{background:rgba(255,255,255,.85);backdrop-filter:blur(12px);border:1px solid rgba(0,0,0,.06);border-radius:24px;padding:28px 22px;margin-top:26px;width:100%;max-width:480px;box-shadow:0 20px 60px rgba(180,140,100,.15)}
- .upload{border:2px dashed #d8c7b5;border-radius:18px;padding:28px 16px;cursor:pointer;transition:.2s;background:#fffdfa}
- .upload:hover{border-color:#c9a27a;background:#fff9f2}
- .upload p{font-size:15px;margin-top:10px}
- .upload small{color:#a08e7d}
-  input[type=file]{display:none}
-  #preview{width:100%;border-radius:18px;margin-top:18px;display:none;box-shadow:0 12px 35px rgba(0,0,0,.12)}
- .label{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#a08e7d;margin:20px 0 10px;text-align:left}
- .bg-row{display:flex;gap:10px}
- .bg-btn{flex:1;border:2px solid transparent;border-radius:14px;padding:0;height:62px;cursor:pointer;overflow:hidden;position:relative}
- .bg-btn.active{border-color:#111}
- .bg-btn small{position:absolute;bottom:6px;left:0;right:0;font-size:10px;letter-spacing:1px;background:rgba(255,255,255,.85)}
- .btn-primary{width:100%;background:#1a1310;color:#fff;border:0;padding:18px;border-radius:16px;font-size:16px;font-weight:600;letter-spacing:.5px;margin-top:20px;cursor:pointer;transition:.2s}
- .btn-primary:hover{transform:translateY(-1px);box-shadow:0 12px 25px rgba(0,0,0,.2)}
- .btn-ghost{width:100%;background:transparent;border:1px solid #ddd5c9;padding:15px;border-radius:16px;margin-top:10px;font-size:15px;cursor:pointer}
-  canvas{display:none}
- .tips{max-width:480px;margin-top:18px;font-size:12px;color:#9a8a7a;text-align:center;line-height:1.6}
+*{box-sizing:border-box;margin:0}body{font-family:Inter;background:#0b0a09;color:#ece5db;min-height:100vh}
+header{padding:28px 20px;text-align:center;border-bottom:1px solid #1f1b17}
+header h1{font-family:'Cormorant Garamond';font-size:32px;letter-spacing:4px}header h1 span{color:#d4af7a}
+header p{font-size:11px;letter-spacing:3px;color:#8a7a6a;margin-top:6px;text-transform:uppercase}
+.wrap{max-width:980px;margin:0 auto;padding:20px;display:grid;grid-template-columns:1fr;gap:20px}
+@media(min-width:900px){.wrap{grid-template-columns:1.2fr.8fr}}
+.card{background:#151210;border:1px solid #24201c;border-radius:20px;padding:20px}
+#preview{width:100%;border-radius:14px;background:#000;display:block;min-height:300px;object-fit:contain}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.btn{padding:13px 18px;border-radius:12px;border:0;font-weight:600;cursor:pointer;font-size:14px}
+.btn-gold{background:linear-gradient(135deg,#e8c88a,#c99a5b);color:#1a1310;flex:1}
+.btn-dark{background:#24201c;color:#fff;border:1px solid #332d27}
+.btn-manual{width:100%;background:transparent;border:1px dashed #5a4d40;color:#d4af7a;padding:14px;border-radius:12px;margin-top:10px;cursor:pointer;font-weight:600}
+input[type=file]{display:none}
+.upload{border:2px dashed #3a322b;border-radius:16px;padding:36px;text-align:center;cursor:pointer;display:block}
+.upload:hover{border-color:#d4af7a}
+.bgrow{display:flex;gap:8px;margin-top:12px}.bg{flex:1;height:52px;border-radius:10px;border:2px solid transparent;cursor:pointer}.bg.active{border-color:#d4af7a}
+.editor{display:none;margin-top:16px;border-top:1px solid #24201c;padding-top:16px}
+.editor.open{display:block}
+.slider{margin:12px 0}.slider label{display:flex;justify-content:space-between;font-size:12px;color:#a99a8a;margin-bottom:6px;text-transform:uppercase;letter-spacing:1px}
+.slider input{width:100%;accent-color:#d4af7a}
+.presets{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.preset{background:#24201c;border:1px solid #332d27;color:#fff;padding:8px 12px;border-radius:20px;font-size:12px;cursor:pointer}
+.section{font-size:11px;letter-spacing:2px;color:#d4af7a;margin:18px 0 6px;text-transform:uppercase}
+canvas{display:none}
 </style>
 </head>
 <body>
-
-<div class="brand">AURA<span>BEAUTY</span></div>
-<div class="sub">Product Studio</div>
-
+<header><h1>AURA <span>PRODUCT STUDIO</span></h1><p>Editor profesional</p></header>
+<div class="wrap">
 <div class="card">
-  <label class="upload" for="in">
-    <div style="font-size:38px">📸</div>
-    <p><b>Tocá para subir la foto</b></p>
-    <small>JPG o PNG • se procesa en tu celular</small>
-  </label>
-  <input type="file" id="in" accept="image/*" capture="environment">
-
-  <img id="preview">
-  <canvas id="c"></canvas>
-
-  <div class="label">Fondo estudio</div>
-  <div class="bg-row">
-    <button class="bg-btn active" id="b1" style="background:#ffffff" onclick="setBg('#ffffff','b1')"><small>BLANCO</small></button>
-    <button class="bg-btn" id="b2" style="background:#f6efe6" onclick="setBg('#f6efe6','b2')"><small>BEIGE AURA</small></button>
-    <button class="bg-btn" id="b3" style="background:radial-gradient(circle at 50% 40%, #fff, #d4d4d4)" onclick="setBg('studio','b3')"><small>ESTUDIO</small></button>
-  </div>
-
-  <button class="btn-primary" onclick="mejorarPro()">✨ Mejorar foto profesionalmente</button>
-  <button class="btn-ghost" onclick="descargar()">Descargar en HD</button>
+<label class="upload" for="in">📸<br><b>Subir foto</b><br><small style="color:#8a7a6a">Click para elegir</small></label>
+<input type=file id=in accept="image/*">
+<img id=preview>
+<canvas id=c></canvas>
+<div class="toolbar">
+<button class="btn btn-gold" onclick="autoPro()">✨ Mejorar IA Pro</button>
+<button class="btn btn-dark" onclick="descargar()">Descargar HD</button>
+</div>
+<button class="btn-manual" onclick="document.getElementById('ed').classList.toggle('open')">🛠️ Editar manualmente...</button>
+<div class="bgrow">
+<div class="bg active" style="background:#fff" onclick="setBG('#ffffff',this)"></div>
+<div class="bg" style="background:#f6efe6" onclick="setBG('#f6efe6',this)"></div>
+<div class="bg" style="background:radial-gradient(circle,#fff,#999)" onclick="setBG('studio',this)"></div>
+<div class="bg" style="background:#111" onclick="setBG('#111111',this)"></div>
+</div>
 </div>
 
-<div class="tips">Iluminación balanceada • Color real • Sombra suave natural • Encuadre 1:1 listo para Instagram y tienda</div>
-
+<div class="card">
+<div style="font-weight:700;margin-bottom:8px">Editor manual</div>
+<small style="color:#8a7a6a">Como Lightroom, todo en tiempo real</small>
+<div id=ed class="editor open">
+<div class="section">Luz</div>
+<div class=slider><label>Exposición <span id=v-exp>0</span></label><input type=range id=s-exp min=-100 max=100 value=12 oninput="upd()"></div>
+<div class=slider><label>Contraste <span id=v-con>0</span></label><input type=range id=s-con min=-100 max=100 value=8 oninput="upd()"></div>
+<div class=slider><label>Iluminaciones <span id=v-hi>0</span></label><input type=range id=s-hi min=-100 max=100 value=-15 oninput="upd()"></div>
+<div class=slider><label>Sombras <span id=v-sh>0</span></label><input type=range id=s-sh min=-100 max=100 value=25 oninput="upd()"></div>
+<div class=slider><label>Blancos <span id=v-wh>0</span></label><input type=range id=s-wh min=-100 max=100 value=10 oninput="upd()"></div>
+<div class=slider><label>Negros <span id=v-bl>0</span></label><input type=range id=s-bl min=-100 max=100 value=-10 oninput="upd()"></div>
+<div class="section">Color</div>
+<div class=slider><label>Temperatura <span id=v-temp>0</span></label><input type=range id=s-temp min=-100 max=100 value=8 oninput="upd()"></div>
+<div class=slider><label>Saturación <span id=v-sat>0</span></label><input type=range id=s-sat min=-100 max=100 value=12 oninput="upd()"></div>
+<div class=slider><label>Vibrancia <span id=v-vib>0</span></label><input type=range id=s-vib min=-100 max=100 value=15 oninput="upd()"></div>
+<div class="section">Detalle</div>
+<div class=slider><label>Nitidez <span id=v-sha>0</span></label><input type=range id=s-sha min=0 max=100 value=20 oninput="upd()"></div>
+<div class=slider><label>Viñeta <span id=v-vig>0</span></label><input type=range id=s-vig min=-100 max=100 value=-12 oninput="upd()"></div>
+<div class="section">Presets pro</div>
+<div class=presets>
+<button class=preset onclick="preset('ecommerce')">E-commerce limpio</button>
+<button class=preset onclick="preset('beauty')">Beauty glow</button>
+<button class=preset onclick="preset('lujo')">Lujo oscuro</button>
+<button class=preset onclick="reset()">Reset</button>
+</div>
+</div>
+</div>
+</div>
 <script>
-let img=new Image(), bg='#ffffff';
+let img=new Image(),bg='#ffffff',S=1600;
 const $=id=>document.getElementById(id);
-$('in').onchange=e=>{ const f=e.target.files[0]; if(!f) return; img.src=URL.createObjectURL(f); img.onload=()=>{ $('preview').src=img.src; $('preview').style.display='block'; } };
-
-function setBg(v,id){ bg=v; document.querySelectorAll('.bg-btn').forEach(b=>b.classList.remove('active')); $(id).classList.add('active'); }
-
-function mejorarPro(){
- if(!img.src){alert('Subí una foto primero');return;}
- const S=1600, c=$('c'), x=c.getContext('2d'); c.width=S; c.height=S;
- function pintarFondo(){
-  if(bg==='studio'){ const g=x.createRadialGradient(S/2,S/2,150,S/2,S/2,S);
-   g.addColorStop(0,'#ffffff'); g.addColorStop(1,'#d2d2d2'); x.fillStyle=g; }
-  else x.fillStyle=bg;
-  x.fillRect(0,0,S,S);
- }
- pintarFondo();
- x.filter='brightness(1.12) contrast(1.08) saturate(1.1)';
- x.shadowColor='rgba(0,0,0,0.28)'; x.shadowBlur=70; x.shadowOffsetY=40;
- const pad=S*0.16, r=Math.min((S-pad*2)/img.width,(S-pad*2)/img.height);
- const dw=img.width*r, dh=img.height*r;
- x.drawImage(img,(S-dw)/2,(S-dh)/2.95,dw,dh);
- x.filter='none'; x.shadowColor='transparent';
- const v=x.createRadialGradient(S/2,S/2,S*0.35,S/2,S/2,S*0.8);
- v.addColorStop(0,'rgba(0,0,0,0)'); v.addColorStop(1,'rgba(0,0,0,0.07)');
- x.fillStyle=v; x.fillRect(0,0,S,S);
- $('preview').src=c.toDataURL('image/jpeg',0.96);
+$('in').onchange=e=>{img.src=URL.createObjectURL(e.target.files[0]);img.onload=()=>{upd();}};
+function setBG(v,el){bg=v;document.querySelectorAll('.bg').forEach(b=>b.classList.remove('active'));el.classList.add('active');upd();}
+function g(id){return parseInt($(id).value)}
+function upd(){
+ if(!img.src)return;
+ ['exp','con','hi','sh','wh','bl','temp','sat','vib','sha','vig'].forEach(k=>{ $('v-'+k).textContent=$('s-'+k).value });
+ const c=$('c'),x=c.getContext('2d');c.width=S;c.height=S;
+ if(bg==='studio'){let gr=x.createRadialGradient(S/2,S/2,100,S/2,S/2,S);gr.addColorStop(0,'#fff');gr.addColorStop(1,'#bdbdbd');x.fillStyle=gr;} else x.fillStyle=bg;
+ x.fillRect(0,0,S,S);
+ const exp=g('s-exp')/100, con=1+g('s-con')/250, sat=1+g('s-sat')/120, temp=g('s-temp');
+ let bri=1+exp*0.6+g('s-sh')/400 - g('s-hi')/600;
+ x.filter=`brightness(${bri.toFixed(2)}) contrast(${con.toFixed(2)}) saturate(${sat.toFixed(2)})`;
+ x.shadowColor='rgba(0,0,0,0.28)';x.shadowBlur=60;x.shadowOffsetY=35;
+ const pad=S*0.15,r=Math.min((S-pad*2)/img.width,(S-pad*2)/img.height),dw=img.width*r,dh=img.height*r;
+ x.drawImage(img,(S-dw)/2,(S-dh)/2.9,dw,dh);
+ x.filter='none';x.shadowColor='transparent';
+ // temperatura simple overlay
+ if(temp!==0){x.fillStyle=temp>0?`rgba(255,180,80,${temp/500})`:`rgba(80,150,255,${-temp/500})`;x.fillRect(0,0,S,S);}
+ // viñeta
+ const vg=g('s-vig'); if(vg!==0){let v=x.createRadialGradient(S/2,S/2,S*0.3,S/2,S/2,S*0.75);v.addColorStop(0,'rgba(0,0,0,0)');v.addColorStop(1,`rgba(0,0,0,${Math.abs(vg)/350})`);x.fillStyle=v;x.fillRect(0,0,S,S);}
+ $('preview').src=c.toDataURL('image/jpeg',0.94);
 }
-function descargar(){ const a=document.createElement('a'); a.download='aura-producto-pro.jpg'; a.href=$('preview').src; a.click(); }
+function autoPro(){ $('s-exp').value=12;$('s-con').value=8;$('s-hi').value=-15;$('s-sh').value=25;$('s-wh').value=10;$('s-bl').value=-10;$('s-temp').value=8;$('s-sat').value=12;$('s-vib').value=15;$('s-sha').value=20;$('s-vig').value=-12;upd();}
+function preset(p){
+ if(p==='ecommerce')autoPro();
+ if(p==='beauty'){$('s-exp').value=18;$('s-sat').value=18;$('s-temp').value=15;$('s-sh').value=30;$('s-vig').value=-20;upd();}
+ if(p==='lujo'){setBG('#111111',document.querySelectorAll('.bg')[3]);$('s-exp').value=5;$('s-con').value=25;$('s-sat').value=5;$('s-vig').value=-40;upd();}
+}
+function reset(){document.querySelectorAll('input[type=range]').forEach(i=>i.value=0);upd();}
+function descargar(){let a=document.createElement('a');a.download='aura-pro.jpg';a.href=$('preview').src;a.click();}
 </script>
 </body>
 </html>
