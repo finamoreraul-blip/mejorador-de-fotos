@@ -1,203 +1,171 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>AURA Studio PRO - 5 Herramientas</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Cormorant+Garamond:wght@700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AURA Studio PRO</title>
 <style>
-*{box-sizing:border-box;margin:0}body{font-family:Inter;background:#0b0a09;color:#ece5db;min-height:100vh}
-header{padding:28px;text-align:center;border-bottom:1px solid #1f1b17;background:radial-gradient(600px at 50% -100px,#2a2118,transparent)}
-header h1{font-family:'Cormorant Garamond';font-size:34px;letter-spacing:4px}header h1 span{color:#d4af7a}
-.sub{font-size:11px;letter-spacing:3px;color:#8a7a6a;margin-top:6px}
-.wrap{max-width:1100px;margin:auto;padding:18px;display:grid;gap:18px}
-@media(min-width:950px){.wrap{grid-template-columns:1fr 1fr}}
-.card{background:#151210;border:1px solid #26211c;border-radius:20px;padding:22px;box-shadow:0 10px 40px rgba(0,0,0,.4)}
+*{box-sizing:border-box;margin:0}
+body{font-family:system-ui;background:#0b0a09;color:#ece5db}
+header{padding:22px;text-align:center;border-bottom:1px solid #222}
+header h1{letter-spacing:3px}
+header h1 span{color:#d4af7a}
+.sub{font-size:11px;color:#888;letter-spacing:2px;margin-top:6px}
+.wrap{max-width:1020px;margin:auto;padding:16px;display:grid;gap:16px}
+@media(min-width:900px){.wrap{grid-template-columns:1fr 1fr}}
+.card{background:#151210;border:1px solid #26211c;border-radius:18px;padding:18px}
 .card.full{grid-column:1/-1}
-.thead{display:flex;align-items:center;margin-bottom:12px}
-.num{background:linear-gradient(135deg,#e8c88a,#c99a5b);color:#000;font-weight:800;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-right:12px}
-.thead b{font-size:17px}.thead small{display:block;color:#8a7a6a;font-weight:400;font-size:12px}
-.btn{width:100%;padding:15px;border-radius:13px;border:0;font-weight:800;margin:8px 0;cursor:pointer;font-size:15px;transition:.2s}
-.btn:active{transform:scale(.98)}
+.t{font-weight:800;margin-bottom:8px;display:block}
+.btn{width:100%;padding:14px;border-radius:12px;border:0;font-weight:800;margin:7px 0;cursor:pointer}
 .gold{background:linear-gradient(135deg,#e8c88a,#c99a5b);color:#1a1310}
-.dark{background:#24201c;color:#fff;border:1px solid #3a332c}
+.dark{background:#24201c;color:#fff;border:1px solid #333}
 .ghost{background:transparent;border:1px dashed #5a4d40;color:#d4af7a}
-.upload{border:2px dashed #3a322b;border-radius:16px;padding:34px;text-align:center;display:block;cursor:pointer;transition:.2s}
-.upload:hover{border-color:#d4af7a;background:#1a1613}
-#preview{width:100%;border-radius:14px;margin-top:12px;display:none;background:#000;box-shadow:0 8px 30px rgba(0,0,0,.5)}
-.bgs{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin:12px 0}
-.bg{height:52px;border-radius:12px;cursor:pointer;border:2px solid transparent;transition:.2s}.bg.a{border-color:#d4af7a;transform:scale(1.05)}
-.loader{display:none;color:#d4af7a;text-align:center;margin:10px;line-height:1.6}
-.sec{color:#d4af7a;font-size:11px;letter-spacing:2px;margin:18px 0 8px;text-transform:uppercase;font-weight:700;border-bottom:1px solid #26211c;padding-bottom:6px}
-.slider{margin:10px 0}.slider label{display:flex;justify-content:space-between;font-size:11px;color:#b8a99a;margin-bottom:6px;text-transform:uppercase;font-weight:600}
-.slider label span{background:#24201c;padding:2px 8px;border-radius:10px;color:#d4af7a}
-.slider input{width:100%;accent-color:#d4af7a;height:24px}
-.preset{background:#24201c;border:1px solid #3a332c;color:#fff;padding:9px 14px;border-radius:20px;font-size:12px;margin:4px;cursor:pointer;transition:.2s}
-.preset:hover{border-color:#d4af7a;color:#d4af7a}
-textarea,input[type=text],select{width:100%;padding:13px;border-radius:11px;background:#0f0d0b;border:1px solid #2e2823;color:#fff;margin:6px 0;font-family:Inter;font-size:14px}
-textarea:focus,input:focus{outline:none;border-color:#d4af7a}
-table{width:100%;border-collapse:collapse;margin-top:10px;font-size:14px}
-th,td{padding:12px;text-align:left;border-bottom:1px solid #26211c}
-th{color:#d4af7a;font-size:11px;text-transform:uppercase;letter-spacing:1px}
-tr:hover td{background:#1a1613}
-.price-link{color:#000;background:#d4af7a;padding:6px 12px;border-radius:20px;text-decoration:none;font-weight:700;font-size:12px;white-space:nowrap}
-.tonebtn{flex:1;padding:10px;border-radius:10px;border:1px solid #3a332c;background:#24201c;color:#fff;cursor:pointer;font-size:13px}
-.tonebtn.a{background:#d4af7a;color:#000;font-weight:700;border-color:#d4af7a}
+.upload{border:2px dashed #3a322b;border-radius:14px;padding:28px;text-align:center;display:block;cursor:pointer}
+.upload:hover{border-color:#d4af7a}
+#preview{width:100%;border-radius:12px;margin-top:10px;display:none;background:#000}
+.bgs{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin:10px 0}
+.bg{height:48px;border-radius:10px;cursor:pointer;border:2px solid transparent}
+.bg.a{border-color:#d4af7a}
+.loader{display:none;color:#d4af7a;text-align:center;margin:8px}
+.sec{color:#d4af7a;font-size:11px;letter-spacing:2px;margin:14px 0 6px;text-transform:uppercase;font-weight:700}
+.slider{margin:8px 0}
+.slider label{display:flex;justify-content:space-between;font-size:11px;color:#b8a99a;text-transform:uppercase}
+.slider input{width:100%;accent-color:#d4af7a}
+.preset{background:#24201c;border:1px solid #333;color:#fff;padding:8px 12px;border-radius:20px;font-size:12px;margin:4px;cursor:pointer}
+textarea,input[type=text],select{width:100%;padding:12px;border-radius:10px;background:#0f0d0b;border:1px solid #2e2823;color:#fff;margin:6px 0}
 input[type=file]{display:none}
-.kpi{display:flex;gap:12px;margin-top:12px}.kpi div{flex:1;background:#0f0d0b;border:1px solid #26211c;border-radius:12px;padding:14px;text-align:center}
-.kpi b{color:#d4af7a;font-size:20px;display:block}
+.tonebtn{flex:1;padding:10px;border-radius:10px;border:1px solid #333;background:#24201c;color:#fff;cursor:pointer}
+.tonebtn.a{background:#d4af7a;color:#000;font-weight:700}
+.kpi{display:flex;gap:10px;margin-top:10px}
+.kpi div{flex:1;background:#0f0d0b;border:1px solid #26211c;border-radius:12px;padding:12px;text-align:center}
+.kpi b{color:#d4af7a;display:block;font-size:18px}
+table{width:100%;border-collapse:collapse;margin-top:10px;font-size:14px}
+th,td{padding:10px;border-bottom:1px solid #26211c;text-align:left}
+.price-link{background:#d4af7a;color:#000;padding:6px 12px;border-radius:20px;text-decoration:none;font-weight:700;font-size:12px}
+small.hint{color:#776;font-size:12px}
 </style>
 </head>
 <body>
-<header><h1>AURA <span>STUDIO PRO</span></h1><div class="sub">5 HERRAMIENTAS PROFESIONALES PARA EMPRENDEDORAS</div></header>
+<header><h1>AURA <span>STUDIO PRO</span></h1><div class="sub">5 HERRAMIENTAS PROFESIONALES</div></header>
 <div class="wrap">
 
-<!-- 1 IA -->
 <div class="card">
-<div class="thead"><div class="num">1</div><div><b>Mejora IA Pro</b><small>Quita fondo feo • Sube a 3200px • Calidad revista</small></div></div>
-<label class="upload" for="in">📸<br><b>Toca para subir foto</b><br><small style="color:#8a7a6a">Borrosa, oscura o con fondo desordenado</small></label><input type=file id=in accept="image/*">
-<div class="loader" id="load">🧠 IA trabajando...<br>Eliminando fondo + mejorando píxeles<br><small>20-40 seg primera vez</small></div>
-<img id="preview"><canvas id="c" style="display:none"></canvas>
+<span class="t">1. Mejora IA Pro</span>
+<label class="upload" for="in">📸<br><b>Toca para subir foto</b></label>
+<input type=file id=in accept="image/*">
+<div class="loader" id="load">🧠 IA trabajando... 20-40 seg</div>
+<img id="preview">
+<canvas id="c" style="display:none"></canvas>
 <div class="sec">Fondos estudio</div>
 <div class="bgs">
-<div class="bg a" title="Blanco" style="background:#fff" onclick="setBG('#ffffff',this)"></div>
-<div class="bg" title="Beige" style="background:#f6efe6" onclick="setBG('#f6efe6',this)"></div>
-<div class="bg" title="Arena" style="background:#e8dccf" onclick="setBG('#e8dccf',this)"></div>
-<div class="bg" title="Degradado estudio" style="background:radial-gradient(circle at 50% 30%,#fff,#a8a8a8)" onclick="setBG('studio',this)"></div>
-<div class="bg" title="Rosa Aura" style="background:linear-gradient(135deg,#f9d5d3,#e8a8a5)" onclick="setBG('#f9d5d3',this)"></div>
-<div class="bg" title="Negro lujo" style="background:#111" onclick="setBG('#111111',this)"></div>
+<div class="bg a" style="background:#ffffff" onclick="setBG('#ffffff',this)"></div>
+<div class="bg" style="background:#f6efe6" onclick="setBG('#f6efe6',this)"></div>
+<div class="bg" style="background:#e8dccf" onclick="setBG('#e8dccf',this)"></div>
+<div class="bg" style="background:#f9d5d3" onclick="setBG('#f9d5d3',this)"></div>
+<div class="bg" style="background:radial-gradient(circle,#fff,#999)" onclick="setBG('studio',this)"></div>
+<div class="bg" style="background:#111111" onclick="setBG('#111111',this)"></div>
 </div>
-<button class="btn gold" onclick="mejorarIA()">✨ MEJORAR CON IA PRO</button>
+<button class="btn gold" onclick="mejorarIA()">✨ MEJORAR CON IA</button>
 </div>
 
-<!-- 2 EDITOR -->
 <div class="card">
-<div class="thead"><div class="num">2</div><div><b>Editor Lightroom Pro</b><small>10 ajustes profesionales</small></div></div>
+<span class="t">2. Editor Pro</span>
 <button class="ghost btn" onclick="document.getElementById('ed').style.display=document.getElementById('ed').style.display=='none'?'block':'none'">🛠️ Abrir / cerrar editor</button>
 <div id="ed" style="display:none">
 <div class="sec">Luz</div>
 <div class="slider"><label>Exposición <span id="v-exp">12</span></label><input type=range id="s-exp" min=-100 max=100 value=12></div>
 <div class="slider"><label>Contraste <span id="v-con">10</span></label><input type=range id="s-con" min=-100 max=100 value=10></div>
-<div class="slider"><label>Iluminaciones <span id="v-hi">-15</span></label><input type=range id="s-hi" min=-100 max=100 value=-15></div>
 <div class="slider"><label>Sombras <span id="v-sh">25</span></label><input type=range id="s-sh" min=-100 max=100 value=25></div>
-<div class="slider"><label>Blancos <span id="v-wh">10</span></label><input type=range id="s-wh" min=-100 max=100 value=10></div>
-<div class="slider"><label>Negros <span id="v-bl">-10</span></label><input type=range id="s-bl" min=-100 max=100 value=-10></div>
 <div class="sec">Color</div>
 <div class="slider"><label>Temperatura <span id="v-temp">8</span></label><input type=range id="s-temp" min=-100 max=100 value=8></div>
 <div class="slider"><label>Saturación <span id="v-sat">14</span></label><input type=range id="s-sat" min=-100 max=100 value=14></div>
-<div class="slider"><label>Vibrancia <span id="v-vib">15</span></label><input type=range id="s-vib" min=-100 max=100 value=15></div>
 <div class="sec">Detalle</div>
-<div class="slider"><label>Nitidez IA <span id="v-sha">45</span></label><input type=range id="s-sha" min=0 max=100 value=45></div>
-<div class="slider"><label>Viñeta <span id="v-vig">-12</span></label><input type=range id="s-vig" min=-100 max=100 value=-12></div>
-<div class="sec">Presets Aura</div>
-<div><button class="preset" onclick="presetE('ecommerce')">🛒 E-commerce limpio</button><button class="preset" onclick="presetE('beauty')">💖 Beauty glow</button><button class="preset" onclick="presetE('lujo')">🖤 Lujo oscuro</button><button class="preset" onclick="resetS()">Reset</button></div>
+<div class="slider"><label>Nitidez <span id="v-sha">45</span></label><input type=range id="s-sha" min=0 max=100 value=45></div>
+<div class="sec">Presets</div>
+<button class="preset" onclick="presetE('a')">E-commerce</button>
+<button class="preset" onclick="presetE('b')">Beauty glow</button>
 <button class="btn dark" onclick="recomponer()">Aplicar ajustes</button>
 </div>
 <div class="sec">Exportar</div>
-<select id="res"><option value="3200">3200px Ultra HD - Mercado Libre</option><option value="2000">2000px HD</option><option value="1080">1080px Instagram</option></select>
-<label style="font-size:13px;display:block;margin:8px 0"><input type="checkbox" id="wmA" style="accent-color:#d4af7a"> Agregar mi logo como marca de agua</label>
-<label class="ghost btn" style="text-align:center" for="logoIn">Subir logo PNG</label><input type=file id="logoIn" accept="image/*">
-<button class="btn dark" onclick="descargar()">⬇ Descargar foto final</button>
+<select id="res"><option value="3200">3200px Ultra HD</option><option value="1080">1080px Instagram</option></select>
+<label style="font-size:13px"><input type="checkbox" id="wmA"> Marca de agua logo</label>
+<label class="ghost btn" style="text-align:center" for="logoIn">Subir logo PNG</label>
+<input type=file id=logoIn accept="image/*">
+<button class="btn dark" onclick="descargar()">⬇ Descargar final</button>
 </div>
 
-<!-- 3 COMPARADOR -->
 <div class="card">
-<div class="thead"><div class="num">3</div><div><b>Comparador de Precios</b><small>Encontrá el distribuidor más barato</small></div></div>
-<input type=text id="prodName" placeholder="Ej: Labial Maybelline Superstay 20">
-<button class="btn gold" onclick="comparar()">🔍 Comparar precios ahora</button>
-<div id="priceTable"></div>
-<small style="color:#666">Tip: copiá el nombre exacto del producto para mejores resultados.</small>
+<span class="t">3. Comparador de precios</span>
+<input type=text id=prodName placeholder="Ej: Labial Maybelline">
+<button class="btn gold" onclick="comparar()">🔍 Comparar</button>
+<div id=priceTable></div>
+<small class="hint">Se ordena por menor precio.</small>
 </div>
 
-<!-- 4 DESCRIPCION -->
 <div class="card">
-<div class="thead"><div class="num">4</div><div><b>Descripción Vendedora</b><small>Texto que vende solo</small></div></div>
-<input type=text id="pName2" placeholder="Nombre: Ej Labial matte Natura">
-<input type=text id="pPrice" placeholder="Precio: Ej $8900">
-<div style="display:flex;gap:8px;margin:8px 0">
-<button class="tonebtn a" id="t1" onclick="setTone('elegante',this)">Elegante</button>
-<button class="tonebtn" id="t2" onclick="setTone('canchero',this)">Canchero</button>
-<button class="tonebtn" id="t3" onclick="setTone('mayorista',this)">Mayorista</button>
+<span class="t">4. Descripción vendedora</span>
+<input type=text id=pName2 placeholder="Nombre producto">
+<input type=text id=pPrice placeholder="Precio ej $8900">
+<div style="display:flex;gap:6px;margin:6px 0">
+<button class="tonebtn a" onclick="setTone('elegante',this)">Elegante</button>
+<button class="tonebtn" onclick="setTone('canchero',this)">Canchero</button>
+<button class="tonebtn" onclick="setTone('mayorista',this)">Mayorista</button>
 </div>
-<button class="btn gold" onclick="genDesc()">✍️ Generar descripción</button>
-<textarea id="descOut" rows=9 placeholder="Tu texto vendedor aparece acá..."></textarea>
-<button class="btn dark" onclick="navigator.clipboard.writeText(document.getElementById('descOut').value);alert('¡Copiado!')">📋 Copiar texto</button>
+<button class="btn gold" onclick="genDesc()">✍️ Generar</button>
+<textarea id=descOut rows=7 placeholder="Tu texto acá..."></textarea>
+<button class="btn dark" onclick="navigator.clipboard.writeText(document.getElementById('descOut').value);alert('Copiado')">📋 Copiar</button>
 </div>
 
-<!-- 5 CALCULADORA -->
 <div class="card full">
-<div class="thead"><div class="num">5</div><div><b>Calculadora de Ganancia Real</b><small>¿Cuánto ganás de verdad?</small></div></div>
-<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
-<input type=text id="costo" placeholder="Costo $">
-<input type=text id="venta" placeholder="Venta $">
-<input type=text id="envio" placeholder="Envío/comisión $ (opcional)">
+<span class="t">5. Calculadora ganancia real</span>
+<div style="display:grid;grid-template-columns:1fr 1fr auto;gap:8px">
+<input type=text id=costo placeholder="Costo $">
+<input type=text id=venta placeholder="Venta $">
+<button class="btn gold" style="margin:0;padding:12px 20px" onclick="calc()">Calcular</button>
 </div>
-<button class="btn gold" style="max-width:300px" onclick="calc()">💰 Calcular ganancia</button>
-<div class="kpi"><div><small>Ganancia neta</small><b id="k-gan">$0</b></div><div><small>Margen</small><b id="k-mar">0%</b></div><div><small>Veredicto</small><b id="k-ver" style="font-size:14px">—</b></div></div>
+<div class="kpi">
+<div><small>Ganancia</small><b id=k-gan>$0</b></div>
+<div><small>Margen</small><b id=k-mar>0%</b></div>
+<div><small>Veredicto</small><b id=k-ver>—</b></div>
+</div>
 </div>
 
 </div>
+<script>
+// FIX SUBIDA: funciona sin esperar al module
+window._orig=null; window._cut=null; window._bg='#ffffff'; window._logo=null; window._tone='elegante';
+document.addEventListener('DOMContentLoaded',()=>{
+const inp=document.getElementById('in'), prev=document.getElementById('preview');
+inp.addEventListener('change',e=>{ const f=e.target.files[0]; if(!f) return; window._orig=f; prev.src=URL.createObjectURL(f); prev.style.display='block'; });
+document.querySelectorAll('input[type=range]').forEach(r=>{ r.addEventListener('input',()=>{ const el=document.getElementById('v-'+r.id.split('-')[1]); if(el) el.textContent=r.value; }); });
+document.getElementById('logoIn').addEventListener('change',e=>{ window._logo=URL.createObjectURL(e.target.files[0]); alert('Logo listo ✓'); });
+});
+function setBG(v,el){ window._bg=v; document.querySelectorAll('.bg').forEach(b=>b.classList.remove('a')); el.classList.add('a'); if(window._cut) window._doComponer(); }
+function setTone(t,el){ window._tone=t; document.querySelectorAll('.tonebtn').forEach(b=>b.classList.remove('a')); el.classList.add('a'); }
+</script>
 <script type="module">
 import {removeBackground} from "https://cdn.jsdelivr.net/npm/@imgly/background-removal-js@1.5.5/+esm";
-let orig=null,cut=null,bg='#ffffff',logoURL=null,tone='elegante';
 const $=id=>document.getElementById(id);
-$('in').onchange=e=>{orig=e.target.files[0];if(!orig)return;$('preview').src=URL.createObjectURL(orig);$('preview').style.display='block';};
-window.setBG=(v,el)=>{bg=v;document.querySelectorAll('.bg').forEach(b=>b.classList.remove('a'));el.classList.add('a');if(cut)componer();};
-document.querySelectorAll('input[type=range]').forEach(r=>{r.oninput=()=>{const k=r.id.split('-')[1];const el=$('v-'+k);if(el)el.textContent=r.value;};});
-window.mejorarIA=async()=>{if(!orig)return alert('Subí una foto primero');$('load').style.display='block';try{cut=await removeBackground(orig);await componer();}catch(e){alert('Error: '+e.message)}$('load').style.display='none';};
-window.recomponer=()=>{if(!cut)return alert('Primero tocá MEJORAR CON IA PRO');componer();};
-async function componer(){
- const S=parseInt($('res').value)||3200,c=$('c'),x=c.getContext('2d');c.width=S;c.height=S;
- if(bg==='studio'){let gr=x.createRadialGradient(S/2,S*0.35,80,S/2,S/2,S*0.9);gr.addColorStop(0,'#ffffff');gr.addColorStop(1,'#9a9a9a');x.fillStyle=gr;}else x.fillStyle=bg;
- x.fillRect(0,0,S,S);
- const img=new Image();img.src=URL.createObjectURL(cut);await new Promise(r=>img.onload=r);
- const g=id=>parseInt($('s-'+id).value);
- const bri=1+g('exp')/170+g('sh')/500-g('hi')/700+g('wh')/900+g('bl')/1200;
- x.imageSmoothingEnabled=true;x.imageSmoothingQuality='high';
- x.filter=`brightness(${bri.toFixed(3)}) contrast(${(1+g('con')/250).toFixed(3)}) saturate(${(1+g('sat')/120+g('vib')/250).toFixed(3)})`;
- x.shadowColor='rgba(0,0,0,0.32)';x.shadowBlur=S*0.028;x.shadowOffsetY=S*0.018;
- const pad=S*0.15,r=Math.min((S-pad*2)/img.width,(S-pad*2)/img.height),dw=img.width*r,dh=img.height*r;
- x.drawImage(img,(S-dw)/2,(S-dh)/2- S*0.02,dw,dh);x.filter='none';x.shadowColor='transparent';
- const tp=g('temp');if(tp!==0){x.fillStyle=tp>0?`rgba(255,175,80,${tp/550})`:`rgba(90,150,255,${-tp/550})`;x.fillRect(0,0,S,S);}
- const vg=g('vig');if(vg!==0){let v=x.createRadialGradient(S/2,S/2,S*0.3,S/2,S/2,S*0.75);v.addColorStop(0,'rgba(0,0,0,0)');v.addColorStop(1,`rgba(0,0,0,${Math.abs(vg)/380})`);x.fillStyle=v;x.fillRect(0,0,S,S);}
- const amt=g('sha')/100;if(amt>0){try{const idd=x.getImageData(0,0,S,S),d=idd.data,cp=new Uint8ClampedArray(d);for(let y=3;y<S-3;y+=3){for(let xx=3;xx<S-3;xx+=3){const i=(y*S+xx)*4;for(let k=0;k<3;k++){const av=(cp[i+k-4]+cp[i+k+4]+cp[i+k-S*4]+cp[i+k+S*4])/4;let vv=cp[i+k]+(cp[i+k]-av)*amt*1.3;d[i+k]=vv<0?0:vv>255?255:vv;}}}x.putImageData(idd,0,0);}catch(e){}}
- if($('wmA').checked&&logoURL){const l=new Image();l.src=logoURL;await new Promise(r=>l.onload=r);const lw=S*0.20,lh=l.height/l.width*lw;x.globalAlpha=0.9;x.drawImage(l,S-lw-50,S-lh-50,lw,lh);x.globalAlpha=1;}
- $('preview').src=c.toDataURL('image/jpeg',0.93);$('preview').style.display='block';
-}
-window.presetE=t=>{const s=id=>$('s-'+id);
- if(t==='ecommerce'){s('exp').value=12;s('con').value=10;s('hi').value=-15;s('sh').value=25;s('wh').value=10;s('bl').value=-10;s('temp').value=8;s('sat').value=14;s('vib').value=15;s('vig').value=-12;}
- if(t==='beauty'){s('exp').value=20;s('con').value=6;s('hi').value=-10;s('sh').value=32;s('temp').value=16;s('sat').value=22;s('vib').value=20;s('sha').value=55;s('vig').value=-18;}
- if(t==='lujo'){setBG('#111111',document.querySelectorAll('.bg')[5]);s('exp').value=5;s('con').value=30;s('sat').value=5;s('vib').value=5;s('vig').value=-40;s('sha').value=50;}
- document.querySelectorAll('input[type=range]').forEach(r=>r.oninput());recomponer();};
-window.resetS=()=>{document.querySelectorAll('input[type=range]').forEach(i=>i.value=0);document.querySelectorAll('input[type=range]').forEach(r=>r.oninput());recomponer();};
-$('logoIn').onchange=e=>{logoURL=URL.createObjectURL(e.target.files[0]);alert('Logo cargado ✓');};
-window.descargar=()=>{if(!$('preview').src)return alert('Primero mejorá una foto');const a=document.createElement('a');a.download='aura-pro-'+Date.now()+'.jpg';a.href=$('preview').src;a.click();};
-
-window.comparar=()=>{
- const q=$('prodName').value.trim();if(!q)return alert('Escribí el producto');
- const e=encodeURIComponent(q);
- $('priceTable').innerHTML=`<table><tr><th>Tienda</th><th>Buscar</th><th>Orden</th></tr>
- <tr><td>🛒 Mercado Libre</td><td><a class="price-link" target="_blank" href="https://listado.mercadolibre.com.ar/${e}#order=price_asc">Ver más baratos</a></td><td>Menor precio</td></tr>
- <tr><td>🛍️ Google Shopping</td><td><a class="price-link" target="_blank" href="https://www.google.com/search?tbm=shop&q=${e}+precio+argentina&sort=price">Comparar</a></td><td>Ofertas</td></tr>
- <tr><td>📦 Mayoristas</td><td><a class="price-link" target="_blank" href="https://www.google.com/search?q=${encodeURIComponent(q+' distribuidora mayorista argentina precio')}">Buscar</a></td><td>Por mayor</td></tr>
- <tr><td>💊 Farmacity / Perfumerías</td><td><a class="price-link" target="_blank" href="https://www.google.com/search?q=${encodeURIComponent(q+' farmacity perfumeria precio')}">Ver</a></td><td>Retail</td></tr></table>
- <small style="color:#8a7a6a">Se abren ordenados por precio. Anotá los 3 más baratos y calculá tu margen en la herramienta 5.</small>`;
+window.mejorarIA=async()=>{ if(!window._orig) return alert('Subí una foto primero'); $('load').style.display='block'; try{ window._cut=await removeBackground(window._orig); await window._doComponer(); }catch(e){ alert('Error: '+e.message);} $('load').style.display='none'; };
+window.recomponer=async()=>{ if(!window._cut) return alert('Primero MEJORAR CON IA'); await window._doComponer(); };
+window._doComponer=async()=>{
+const S=parseInt($('res').value)||1080, c=$('c'), x=c.getContext('2d'); c.width=S; c.height=S;
+const bg=window._bg; if(bg==='studio'){ let g=x.createRadialGradient(S/2,S*0.3,50,S/2,S/2,S*0.9); g.addColorStop(0,'#fff'); g.addColorStop(1,'#999'); x.fillStyle=g; } else x.fillStyle=bg; x.fillRect(0,0,S,S);
+const img=new Image(); img.src=URL.createObjectURL(window._cut); await new Promise(r=>img.onload=r);
+const gv=id=>parseInt($('s-'+id).value||0);
+x.imageSmoothingEnabled=true; x.imageSmoothingQuality='high';
+x.filter=`brightness(${(1+gv('exp')/170).toFixed(2)}) contrast(${(1+gv('con')/250).toFixed(2)}) saturate(${(1+gv('sat')/120).toFixed(2)})`;
+x.shadowColor='rgba(0,0,0,0.28)'; x.shadowBlur=S*0.025; x.shadowOffsetY=S*0.015;
+const pad=S*0.14, r=Math.min((S-pad*2)/img.width,(S-pad*2)/img.height), dw=img.width*r, dh=img.height*r;
+x.drawImage(img,(S-dw)/2,(S-dh)/2,dw,dh); x.filter='none'; x.shadowColor='transparent';
+if($('wmA').checked&&window._logo){ const l=new Image(); l.src=window._logo; await new Promise(r=>l.onload=r); const lw=S*0.2, lh=l.height/l.width*lw; x.globalAlpha=0.9; x.drawImage(l,S-lw-40,S-lh-40,lw,lh); x.globalAlpha=1; }
+$('preview').src=c.toDataURL('image/jpeg',0.92); $('preview').style.display='block';
 };
-window.setTone=(t,el)=>{tone=t;document.querySelectorAll('.tonebtn').forEach(b=>b.classList.remove('a'));el.classList.add('a');};
-window.genDesc=()=>{
- const n=$('pName2').value||'Producto Aura', p=$('pPrice').value||'Consultar precio';
- let txt='';
- if(tone==='elegante') txt=`✨ ${n.toUpperCase()} — EDICIÓN AURA ✨\n\nDescubrí la excelencia en cada detalle. Fórmula premium, acabado impecable y duración extrema.\n\n🤍 Original • Sellado • Stock inmediato\n🚚 Envío cuidado a todo el país\n💳 Todos los medios de pago\n\nInversión: ${p}\n\nTe asesoramos por WhatsApp para elegir tu tono ideal.`;
- else if(tone==='canchero') txt=`🔥 ${n.toUpperCase()} EL QUE TODAS QUIEREN 🔥\n\nAmiga, te juro que este es EL producto. Dura todo el día, no se corre, sale en todas las fotos 😍\n\n💖 Precio amiga: ${p}\n📦 Tengo stock YA, se vuelan!\n📲 Escribime y te lo guardo hoy`;
- else txt=`📦 ${n.toUpperCase()} — PRECIO MAYORISTA\n\nCompra directa de distribuidor. Ideal revendedoras / locales.\n\n• Compra mínima 6u\n• Precio unitario: ${p}\n• Descuento por 12u / 24u\n📲 Pedí lista completa por WhatsApp`;
- $('descOut').value=txt;
-};
-window.calc=()=>{
- const c=parseFloat($('costo').value)||0,v=parseFloat($('venta').value)||0,e=parseFloat($('envio').value)||0;
- const gan=v-c-e, mar=v>0?(gan/v*100):0;
- $('k-gan').textContent='$'+gan.toFixed(0);$('k-mar').textContent=mar.toFixed(1)+'%';
- $('k-ver').textContent=mar<20?'⚠️ Subí precio':mar<40?'✅ Bien':mar<70?'🔥 Muy bien':'💎 Excelente';
- $('k-ver').style.color=mar<20?'#ff6b6b':'#d4af7a';
-};
+window.presetE=t=>{ const s=id=>$('s-'+id); if(t==='a'){ s('exp').value=12; s('con').value=10; s('sat').value=14; } else { s('exp').value=20; s('sat').value=22; s('sha').value=55; } window.recomponer(); };
+window.descargar=()=>{ const a=document.createElement('a'); a.download='aura-pro.jpg'; a.href=$('preview').src; a.click(); };
+window.comparar=()=>{ const q=$('prodName').value.trim(); if(!q) return alert('Escribí producto'); const e=encodeURIComponent(q); $('priceTable').innerHTML='<table><tr><th>Tienda</th><th>Ver</th></tr><tr><td>Mercado Libre</td><td><a class=price-link target=_blank href="https://listado.mercadolibre.com.ar/'+e+'">Ver</a></td></tr><tr><td>Google Shopping</td><td><a class=price-link target=_blank href="https://www.google.com/search?tbm=shop&q='+e+'">Ver</a></td></tr></table>'; };
+window.genDesc=()=>{ const n=$('pName2').value||'Producto', p=$('pPrice').value||'Consultar precio'; let t=''; if(window._tone==='elegante') t='✨ '+n.toUpperCase()+' ✨\nCalidad premium, stock inmediato.\nPrecio: '+p+'\nEscribinos por WhatsApp'; else if(window._tone==='canchero') t='🔥 '+n.toUpperCase()+' 🔥\nEl que todas quieren 😍\nPrecio: '+p+'\nTe lo guardo hoy!'; else t='📦 '+n+' MAYORISTA\nPrecio: '+p+'\nMínimo 6 unidades'; $('descOut').value=t; };
+window.calc=()=>{ const c=parseFloat($('costo').value)||0, v=parseFloat($('venta').value)||0, g=v-c, m=v>0?g/v*100:0; $('k-gan').textContent='$'+g.toFixed(0); $('k-mar').textContent=m.toFixed(1)+'%'; $('k-ver').textContent=m<20?'Subí precio':m<40?'Bien':'Excelente'; };
 </script>
 </body>
 </html>
