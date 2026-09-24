@@ -5,167 +5,198 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>AURA Studio PRO</title>
 <style>
-*{box-sizing:border-box;margin:0}
-body{font-family:system-ui;background:#0b0a09;color:#ece5db}
-header{padding:22px;text-align:center;border-bottom:1px solid #222}
-header h1{letter-spacing:3px}
-header h1 span{color:#d4af7a}
-.sub{font-size:11px;color:#888;letter-spacing:2px;margin-top:6px}
-.wrap{max-width:1020px;margin:auto;padding:16px;display:grid;gap:16px}
+*{box-sizing:border-box;margin:0}body{font-family:system-ui;background:#0b0a09;color:#ece5db}
+header{padding:20px;text-align:center;border-bottom:1px solid #222}header h1{letter-spacing:3px}header h1 span{color:#d4af7a}
+.wrap{max-width:1020px;margin:auto;padding:14px;display:grid;gap:14px}
 @media(min-width:900px){.wrap{grid-template-columns:1fr 1fr}}
-.card{background:#151210;border:1px solid #26211c;border-radius:18px;padding:18px}
-.card.full{grid-column:1/-1}
-.t{font-weight:800;margin-bottom:8px;display:block}
-.btn{width:100%;padding:14px;border-radius:12px;border:0;font-weight:800;margin:7px 0;cursor:pointer}
-.gold{background:linear-gradient(135deg,#e8c88a,#c99a5b);color:#1a1310}
-.dark{background:#24201c;color:#fff;border:1px solid #333}
-.ghost{background:transparent;border:1px dashed #5a4d40;color:#d4af7a}
-.upload{border:2px dashed #3a322b;border-radius:14px;padding:28px;text-align:center;display:block;cursor:pointer}
-.upload:hover{border-color:#d4af7a}
-#preview{width:100%;border-radius:12px;margin-top:10px;display:none;background:#000}
-.bgs{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin:10px 0}
-.bg{height:48px;border-radius:10px;cursor:pointer;border:2px solid transparent}
-.bg.a{border-color:#d4af7a}
+.card{background:#151210;border:1px solid #26211c;border-radius:16px;padding:16px}
+.card.full{grid-column:1/-1}.t{font-weight:800;margin-bottom:8px;display:block}
+.btn{width:100%;padding:14px;border-radius:12px;border:0;font-weight:800;margin:6px 0;cursor:pointer;font-size:15px}
+.gold{background:linear-gradient(135deg,#e8c88a,#c99a5b);color:#111}.dark{background:#24201c;color:#fff;border:1px solid #333}.ghost{background:transparent;border:1px dashed #5a4d40;color:#d4af7a}
+.upload{border:2px dashed #3a322b;border-radius:14px;padding:26px;text-align:center;display:block;cursor:pointer}
+#preview{width:100%;border-radius:12px;margin-top:10px;display:none;background:#000;transition:filter.1s}
+.bgs{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin:10px 0}.bg{height:48px;border-radius:10px;cursor:pointer;border:2px solid transparent}.bg.a{border-color:#d4af7a}
 .loader{display:none;color:#d4af7a;text-align:center;margin:8px}
-.sec{color:#d4af7a;font-size:11px;letter-spacing:2px;margin:14px 0 6px;text-transform:uppercase;font-weight:700}
-.slider{margin:8px 0}
-.slider label{display:flex;justify-content:space-between;font-size:11px;color:#b8a99a;text-transform:uppercase}
-.slider input{width:100%;accent-color:#d4af7a}
+.sec{color:#d4af7a;font-size:11px;letter-spacing:2px;margin:12px 0 6px;text-transform:uppercase;font-weight:700}
+.slider{margin:8px 0}.slider label{display:flex;justify-content:space-between;font-size:11px;color:#b8a99a;text-transform:uppercase}.slider input{width:100%;accent-color:#d4af7a}
 .preset{background:#24201c;border:1px solid #333;color:#fff;padding:8px 12px;border-radius:20px;font-size:12px;margin:4px;cursor:pointer}
-textarea,input[type=text],select{width:100%;padding:12px;border-radius:10px;background:#0f0d0b;border:1px solid #2e2823;color:#fff;margin:6px 0}
-input[type=file]{display:none}
-.tonebtn{flex:1;padding:10px;border-radius:10px;border:1px solid #333;background:#24201c;color:#fff;cursor:pointer}
-.tonebtn.a{background:#d4af7a;color:#000;font-weight:700}
-.kpi{display:flex;gap:10px;margin-top:10px}
-.kpi div{flex:1;background:#0f0d0b;border:1px solid #26211c;border-radius:12px;padding:12px;text-align:center}
-.kpi b{color:#d4af7a;display:block;font-size:18px}
-table{width:100%;border-collapse:collapse;margin-top:10px;font-size:14px}
-th,td{padding:10px;border-bottom:1px solid #26211c;text-align:left}
-.price-link{background:#d4af7a;color:#000;padding:6px 12px;border-radius:20px;text-decoration:none;font-weight:700;font-size:12px}
-small.hint{color:#776;font-size:12px}
+textarea,input[type=text],select{width:100%;padding:12px;border-radius:10px;background:#0f0d0b;border:1px solid #2e2823;color:#fff;margin:6px 0}input[type=file]{display:none}
+.tonebtn{flex:1;padding:10px;border-radius:10px;border:1px solid #333;background:#24201c;color:#fff;cursor:pointer}.tonebtn.a{background:#d4af7a;color:#000;font-weight:700}
+.kpi{display:flex;gap:10px;margin-top:10px}.kpi div{flex:1;background:#0f0d0b;border:1px solid #26211c;border-radius:12px;padding:12px;text-align:center}.kpi b{color:#d4af7a;display:block;font-size:18px}
+table{width:100%;border-collapse:collapse;margin-top:10px;font-size:14px}th,td{padding:10px;border-bottom:1px solid #26211c;text-align:left}.price-link{background:#d4af7a;color:#000;padding:6px 12px;border-radius:20px;text-decoration:none;font-weight:700;font-size:12px;white-space:nowrap}
 </style>
 </head>
 <body>
-<header><h1>AURA <span>STUDIO PRO</span></h1><div class="sub">5 HERRAMIENTAS PROFESIONALES</div></header>
+<header><h1>AURA <span>STUDIO PRO</span></h1><div style="font-size:11px;color:#888;letter-spacing:2px">5 HERRAMIENTAS</div></header>
 <div class="wrap">
 
 <div class="card">
 <span class="t">1. Mejora IA Pro</span>
-<label class="upload" for="in">📸<br><b>Toca para subir foto</b></label>
+<label class="upload" for="in">📸 <b>Toca para subir foto</b><br><small>Se ve al instante</small></label>
 <input type=file id=in accept="image/*">
-<div class="loader" id="load">🧠 IA trabajando... 20-40 seg</div>
-<img id="preview">
-<canvas id="c" style="display:none"></canvas>
-<div class="sec">Fondos estudio</div>
+<div class="loader" id="load">🧠 IA trabajando 20-40s...</div>
+<img id="preview"><canvas id="c" style="display:none"></canvas>
+<div class="sec">Fondos</div>
 <div class="bgs">
-<div class="bg a" style="background:#ffffff" onclick="setBG('#ffffff',this)"></div>
-<div class="bg" style="background:#f6efe6" onclick="setBG('#f6efe6',this)"></div>
-<div class="bg" style="background:#e8dccf" onclick="setBG('#e8dccf',this)"></div>
-<div class="bg" style="background:#f9d5d3" onclick="setBG('#f9d5d3',this)"></div>
-<div class="bg" style="background:radial-gradient(circle,#fff,#999)" onclick="setBG('studio',this)"></div>
-<div class="bg" style="background:#111111" onclick="setBG('#111111',this)"></div>
+<div class="bg a" style="background:#fff" data-bg="#ffffff"></div>
+<div class="bg" style="background:#f6efe6" data-bg="#f6efe6"></div>
+<div class="bg" style="background:#e8dccf" data-bg="#e8dccf"></div>
+<div class="bg" style="background:#f9d5d3" data-bg="#f9d5d3"></div>
+<div class="bg" style="background:radial-gradient(circle,#fff,#999)" data-bg="studio"></div>
+<div class="bg" style="background:#111" data-bg="#111111"></div>
 </div>
-<button class="btn gold" onclick="mejorarIA()">✨ MEJORAR CON IA</button>
+<button class="btn gold" id="btnIA">✨ MEJORAR CON IA</button>
 </div>
 
 <div class="card">
-<span class="t">2. Editor Pro</span>
-<button class="ghost btn" onclick="document.getElementById('ed').style.display=document.getElementById('ed').style.display=='none'?'block':'none'">🛠️ Abrir / cerrar editor</button>
-<div id="ed" style="display:none">
+<span class="t">2. Editor en vivo</span>
+<small style="color:#888">Mové y se ve en la foto al instante</small>
+<div id="ed">
 <div class="sec">Luz</div>
-<div class="slider"><label>Exposición <span id="v-exp">12</span></label><input type=range id="s-exp" min=-100 max=100 value=12></div>
-<div class="slider"><label>Contraste <span id="v-con">10</span></label><input type=range id="s-con" min=-100 max=100 value=10></div>
-<div class="slider"><label>Sombras <span id="v-sh">25</span></label><input type=range id="s-sh" min=-100 max=100 value=25></div>
+<div class="slider"><label>Exposición <span id="v-exp">0</span></label><input type=range id="s-exp" min=-100 max=100 value=0></div>
+<div class="slider"><label>Contraste <span id="v-con">0</span></label><input type=range id="s-con" min=-100 max=100 value=0></div>
+<div class="slider"><label>Brillo <span id="v-bri">0</span></label><input type=range id="s-bri" min=-100 max=100 value=0></div>
 <div class="sec">Color</div>
-<div class="slider"><label>Temperatura <span id="v-temp">8</span></label><input type=range id="s-temp" min=-100 max=100 value=8></div>
-<div class="slider"><label>Saturación <span id="v-sat">14</span></label><input type=range id="s-sat" min=-100 max=100 value=14></div>
-<div class="sec">Detalle</div>
-<div class="slider"><label>Nitidez <span id="v-sha">45</span></label><input type=range id="s-sha" min=0 max=100 value=45></div>
+<div class="slider"><label>Temperatura <span id="v-temp">0</span></label><input type=range id="s-temp" min=-100 max=100 value=0></div>
+<div class="slider"><label>Saturación <span id="v-sat">0</span></label><input type=range id="s-sat" min=-100 max=100 value=0></div>
 <div class="sec">Presets</div>
-<button class="preset" onclick="presetE('a')">E-commerce</button>
-<button class="preset" onclick="presetE('b')">Beauty glow</button>
-<button class="btn dark" onclick="recomponer()">Aplicar ajustes</button>
+<button class="preset" data-p="ecom">E-commerce</button><button class="preset" data-p="beauty">Beauty</button><button class="preset" data-p="reset">Reset</button>
 </div>
 <div class="sec">Exportar</div>
-<select id="res"><option value="3200">3200px Ultra HD</option><option value="1080">1080px Instagram</option></select>
-<label style="font-size:13px"><input type="checkbox" id="wmA"> Marca de agua logo</label>
-<label class="ghost btn" style="text-align:center" for="logoIn">Subir logo PNG</label>
-<input type=file id=logoIn accept="image/*">
-<button class="btn dark" onclick="descargar()">⬇ Descargar final</button>
+<select id="res"><option value="2048">2048px HD</option><option value="1080">1080px Instagram</option></select>
+<button class="btn dark" id="btnDown">⬇ Descargar final</button>
 </div>
 
 <div class="card">
 <span class="t">3. Comparador de precios</span>
-<input type=text id=prodName placeholder="Ej: Labial Maybelline">
-<button class="btn gold" onclick="comparar()">🔍 Comparar</button>
+<input type=text id=prodName placeholder="Ej: Labial Maybelline Superstay">
+<button class="btn gold" id="btnComp">🔍 Comparar precios</button>
 <div id=priceTable></div>
-<small class="hint">Se ordena por menor precio.</small>
 </div>
 
 <div class="card">
 <span class="t">4. Descripción vendedora</span>
 <input type=text id=pName2 placeholder="Nombre producto">
 <input type=text id=pPrice placeholder="Precio ej $8900">
-<div style="display:flex;gap:6px;margin:6px 0">
-<button class="tonebtn a" onclick="setTone('elegante',this)">Elegante</button>
-<button class="tonebtn" onclick="setTone('canchero',this)">Canchero</button>
-<button class="tonebtn" onclick="setTone('mayorista',this)">Mayorista</button>
-</div>
-<button class="btn gold" onclick="genDesc()">✍️ Generar</button>
-<textarea id=descOut rows=7 placeholder="Tu texto acá..."></textarea>
-<button class="btn dark" onclick="navigator.clipboard.writeText(document.getElementById('descOut').value);alert('Copiado')">📋 Copiar</button>
+<div style="display:flex;gap:6px"><button class="tonebtn a" data-tone="elegante">Elegante</button><button class="tonebtn" data-tone="canchero">Canchero</button><button class="tonebtn" data-tone="mayorista">Mayorista</button></div>
+<button class="btn gold" id="btnDesc">✍️ Generar</button>
+<textarea id=descOut rows=7></textarea>
+<button class="btn dark" id="btnCopy">📋 Copiar</button>
 </div>
 
 <div class="card full">
-<span class="t">5. Calculadora ganancia real</span>
+<span class="t">5. Calculadora ganancia</span>
 <div style="display:grid;grid-template-columns:1fr 1fr auto;gap:8px">
-<input type=text id=costo placeholder="Costo $">
-<input type=text id=venta placeholder="Venta $">
-<button class="btn gold" style="margin:0;padding:12px 20px" onclick="calc()">Calcular</button>
+<input type=text id=costo placeholder="Costo $"><input type=text id=venta placeholder="Venta $"><button class="btn gold" style="margin:0" id="btnCalc">Calcular</button>
 </div>
-<div class="kpi">
-<div><small>Ganancia</small><b id=k-gan>$0</b></div>
-<div><small>Margen</small><b id=k-mar>0%</b></div>
-<div><small>Veredicto</small><b id=k-ver>—</b></div>
+<div class="kpi"><div><small>Ganancia</small><b id=k-gan>$0</b></div><div><small>Margen</small><b id=k-mar>0%</b></div><div><small>Veredicto</small><b id=k-ver>—</b></div></div>
 </div>
 </div>
 
-</div>
 <script>
-// FIX SUBIDA: funciona sin esperar al module
-window._orig=null; window._cut=null; window._bg='#ffffff'; window._logo=null; window._tone='elegante';
-document.addEventListener('DOMContentLoaded',()=>{
-const inp=document.getElementById('in'), prev=document.getElementById('preview');
-inp.addEventListener('change',e=>{ const f=e.target.files[0]; if(!f) return; window._orig=f; prev.src=URL.createObjectURL(f); prev.style.display='block'; });
-document.querySelectorAll('input[type=range]').forEach(r=>{ r.addEventListener('input',()=>{ const el=document.getElementById('v-'+r.id.split('-')[1]); if(el) el.textContent=r.value; }); });
-document.getElementById('logoIn').addEventListener('change',e=>{ window._logo=URL.createObjectURL(e.target.files[0]); alert('Logo listo ✓'); });
+// ESTADO GLOBAL
+let _orig=null,_cut=null,_bg='#ffffff',_tone='elegante';
+const $=id=>document.getElementById(id);
+
+// 1 SUBIDA INSTANTANEA
+$('in').addEventListener('change',e=>{
+  const f=e.target.files[0]; if(!f) return;
+  _orig=f; _cut=null;
+  $('preview').src=URL.createObjectURL(f);
+  $('preview').style.display='block';
+  applyLive();
 });
-function setBG(v,el){ window._bg=v; document.querySelectorAll('.bg').forEach(b=>b.classList.remove('a')); el.classList.add('a'); if(window._cut) window._doComponer(); }
-function setTone(t,el){ window._tone=t; document.querySelectorAll('.tonebtn').forEach(b=>b.classList.remove('a')); el.classList.add('a'); }
+
+// VISTA PREVIA EN VIVO con CSS
+function applyLive(){
+  const g=id=>parseInt($('s-'+id).value||0);
+  const exp=g('exp'),con=g('con'),bri=g('bri'),sat=g('sat'),temp=g('temp');
+  $('preview').style.filter=`brightness(${(1+exp/200+bri/200).toFixed(2)}) contrast(${(1+con/200).toFixed(2)}) saturate(${(1+sat/150).toFixed(2)}) ${temp>0?`sepia(${temp/300})`:''}`;
+  const v=id=>$( 'v-'+id ); ['exp','con','bri','temp','sat'].forEach(k=>{ if(v(k)) v(k).textContent=$('s-'+k).value; });
+}
+document.querySelectorAll('input[type=range]').forEach(r=>r.addEventListener('input',applyLive));
+
+// FONDOS
+document.querySelectorAll('.bg').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.bg').forEach(x=>x.classList.remove('a')); b.classList.add('a');
+  _bg=b.dataset.bg; if(_cut) doComponer();
+}));
+
+// PRESETS
+document.querySelectorAll('.preset').forEach(p=>p.addEventListener('click',()=>{
+  const s=id=>$('s-'+id);
+  if(p.dataset.p==='ecom'){s('exp').value=10;s('con').value=12;s('sat').value=10;s('temp').value=5}
+  if(p.dataset.p==='beauty'){s('exp').value=18;s('con').value=6;s('sat').value=20;s('temp').value=12;s('bri').value=10}
+  if(p.dataset.p==='reset'){document.querySelectorAll('input[type=range]').forEach(r=>r.value=0)}
+  applyLive(); if(_cut) doComponer();
+}));
+
+// TONOS
+document.querySelectorAll('.tonebtn').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.tonebtn').forEach(x=>x.classList.remove('a')); b.classList.add('a'); _tone=b.dataset.tone;
+}));
+
+// 3 COMPARADOR - SI FILTRA
+$('btnComp').addEventListener('click',()=>{
+  const q=$('prodName').value.trim(); if(!q){alert('Escribí el producto');return}
+  const e=encodeURIComponent(q);
+  $('priceTable').innerHTML=`<table><tr><th>Tienda</th><th>Acción</th></tr>
+  <tr><td>🛒 Mercado Libre</td><td><a class="price-link" target="_blank" href="https://listado.mercadolibre.com.ar/${e}#order=price_asc">Más baratos</a></td></tr>
+  <tr><td>🛍️ Google Shopping</td><td><a class="price-link" target="_blank" href="https://www.google.com/search?tbm=shop&q=${e}+argentina">Comparar</a></td></tr>
+  <tr><td>📦 Mayorista</td><td><a class="price-link" target="_blank" href="https://www.google.com/search?q=${e}+mayorista+argentina+precio">Buscar</a></td></tr></table>`;
+});
+
+// 4 DESCRIPCION
+$('btnDesc').addEventListener('click',()=>{
+  const n=$('pName2').value||'Producto', p=$('pPrice').value||'Consultar precio';
+  let t='';
+  if(_tone==='elegante') t=`✨ ${n.toUpperCase()} — EDICIÓN AURA ✨\nCalidad premium, acabado impecable.\n🤍 Original - Stock inmediato\n🚚 Envío a todo el país\nPrecio: ${p}\nEscribinos por WhatsApp`;
+  else if(_tone==='canchero') t=`🔥 ${n.toUpperCase()} EL QUE TODAS QUIEREN 🔥\nDura todo el día 😍\nPrecio amiga: ${p}\n📲 Te lo guardo hoy!`;
+  else t=`📦 ${n.toUpperCase()} MAYORISTA\nPrecio unitario: ${p}\nMínimo 6u - Descuento por 12u`;
+  $('descOut').value=t;
+});
+$('btnCopy').addEventListener('click',()=>{navigator.clipboard.writeText($('descOut').value);alert('Copiado ✓')});
+
+// 5 CALCULADORA - SI CALCULA
+$('btnCalc').addEventListener('click',()=>{
+  const c=parseFloat($('costo').value)||0, v=parseFloat($('venta').value)||0;
+  const gan=v-c, mar=v>0?gan/v*100:0;
+  $('k-gan').textContent='$'+gan.toFixed(0);
+  $('k-mar').textContent=mar.toFixed(1)+'%';
+  $('k-ver').textContent=mar<20?'⚠️ Subí precio':mar<40?'✅ Bien':mar<70?'🔥 Muy bien':'💎 Excelente';
+});
+
+// DESCARGA CANVAS FINAL
+async function doComponer(){
+  const S=parseInt($('res').value)||2048, c=$('c'), x=c.getContext('2d');
+  c.width=S; c.height=S;
+  if(_bg==='studio'){let gr=x.createRadialGradient(S/2,S*0.3,50,S/2,S/2,S*0.9);gr.addColorStop(0,'#fff');gr.addColorStop(1,'#999');x.fillStyle=gr}else x.fillStyle=_bg;
+  x.fillRect(0,0,S,S);
+  const img=new Image(); img.src=URL.createObjectURL(_cut); await new Promise(r=>img.onload=r);
+  const g=id=>parseInt($('s-'+id).value||0);
+  x.filter=`brightness(${(1+g('exp')/200+g('bri')/200).toFixed(2)}) contrast(${(1+g('con')/200).toFixed(2)}) saturate(${(1+g('sat')/150).toFixed(2)})`;
+  const pad=S*0.12, r=Math.min((S-pad*2)/img.width,(S-pad*2)/img.height), dw=img.width*r, dh=img.height*r;
+  x.drawImage(img,(S-dw)/2,(S-dh)/2,dw,dh); x.filter='none';
+  $('preview').src=c.toDataURL('image/jpeg',0.92);
+}
+$('btnDown').addEventListener('click',()=>{
+  if(!$('preview').src){alert('Subí foto primero');return}
+  const a=document.createElement('a'); a.download='aura-pro.jpg'; a.href=$('preview').src; a.click();
+});
 </script>
+
 <script type="module">
 import {removeBackground} from "https://cdn.jsdelivr.net/npm/@imgly/background-removal-js@1.5.5/+esm";
-const $=id=>document.getElementById(id);
-window.mejorarIA=async()=>{ if(!window._orig) return alert('Subí una foto primero'); $('load').style.display='block'; try{ window._cut=await removeBackground(window._orig); await window._doComponer(); }catch(e){ alert('Error: '+e.message);} $('load').style.display='none'; };
-window.recomponer=async()=>{ if(!window._cut) return alert('Primero MEJORAR CON IA'); await window._doComponer(); };
-window._doComponer=async()=>{
-const S=parseInt($('res').value)||1080, c=$('c'), x=c.getContext('2d'); c.width=S; c.height=S;
-const bg=window._bg; if(bg==='studio'){ let g=x.createRadialGradient(S/2,S*0.3,50,S/2,S/2,S*0.9); g.addColorStop(0,'#fff'); g.addColorStop(1,'#999'); x.fillStyle=g; } else x.fillStyle=bg; x.fillRect(0,0,S,S);
-const img=new Image(); img.src=URL.createObjectURL(window._cut); await new Promise(r=>img.onload=r);
-const gv=id=>parseInt($('s-'+id).value||0);
-x.imageSmoothingEnabled=true; x.imageSmoothingQuality='high';
-x.filter=`brightness(${(1+gv('exp')/170).toFixed(2)}) contrast(${(1+gv('con')/250).toFixed(2)}) saturate(${(1+gv('sat')/120).toFixed(2)})`;
-x.shadowColor='rgba(0,0,0,0.28)'; x.shadowBlur=S*0.025; x.shadowOffsetY=S*0.015;
-const pad=S*0.14, r=Math.min((S-pad*2)/img.width,(S-pad*2)/img.height), dw=img.width*r, dh=img.height*r;
-x.drawImage(img,(S-dw)/2,(S-dh)/2,dw,dh); x.filter='none'; x.shadowColor='transparent';
-if($('wmA').checked&&window._logo){ const l=new Image(); l.src=window._logo; await new Promise(r=>l.onload=r); const lw=S*0.2, lh=l.height/l.width*lw; x.globalAlpha=0.9; x.drawImage(l,S-lw-40,S-lh-40,lw,lh); x.globalAlpha=1; }
-$('preview').src=c.toDataURL('image/jpeg',0.92); $('preview').style.display='block';
-};
-window.presetE=t=>{ const s=id=>$('s-'+id); if(t==='a'){ s('exp').value=12; s('con').value=10; s('sat').value=14; } else { s('exp').value=20; s('sat').value=22; s('sha').value=55; } window.recomponer(); };
-window.descargar=()=>{ const a=document.createElement('a'); a.download='aura-pro.jpg'; a.href=$('preview').src; a.click(); };
-window.comparar=()=>{ const q=$('prodName').value.trim(); if(!q) return alert('Escribí producto'); const e=encodeURIComponent(q); $('priceTable').innerHTML='<table><tr><th>Tienda</th><th>Ver</th></tr><tr><td>Mercado Libre</td><td><a class=price-link target=_blank href="https://listado.mercadolibre.com.ar/'+e+'">Ver</a></td></tr><tr><td>Google Shopping</td><td><a class=price-link target=_blank href="https://www.google.com/search?tbm=shop&q='+e+'">Ver</a></td></tr></table>'; };
-window.genDesc=()=>{ const n=$('pName2').value||'Producto', p=$('pPrice').value||'Consultar precio'; let t=''; if(window._tone==='elegante') t='✨ '+n.toUpperCase()+' ✨\nCalidad premium, stock inmediato.\nPrecio: '+p+'\nEscribinos por WhatsApp'; else if(window._tone==='canchero') t='🔥 '+n.toUpperCase()+' 🔥\nEl que todas quieren 😍\nPrecio: '+p+'\nTe lo guardo hoy!'; else t='📦 '+n+' MAYORISTA\nPrecio: '+p+'\nMínimo 6 unidades'; $('descOut').value=t; };
-window.calc=()=>{ const c=parseFloat($('costo').value)||0, v=parseFloat($('venta').value)||0, g=v-c, m=v>0?g/v*100:0; $('k-gan').textContent='$'+g.toFixed(0); $('k-mar').textContent=m.toFixed(1)+'%'; $('k-ver').textContent=m<20?'Subí precio':m<40?'Bien':'Excelente'; };
+document.getElementById('btnIA').addEventListener('click', async()=>{
+  if(!_orig){alert('Subí una foto primero');return}
+  const load=document.getElementById('load'); load.style.display='block';
+  try{
+    _cut=await removeBackground(_orig);
+    await doComponer();
+    alert('IA lista ✓ Fondo eliminado');
+  }catch(e){alert('Error IA: '+e.message)}
+  load.style.display='none';
+});
 </script>
 </body>
 </html>
