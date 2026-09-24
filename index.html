@@ -3,118 +3,136 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Aura Product Studio PRO</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:wght@600&display=swap" rel="stylesheet">
+<title>Aura Product Studio IA PRO Completo</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Cormorant+Garamond:wght@600&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0}body{font-family:Inter;background:#0b0a09;color:#ece5db;min-height:100vh}
-header{padding:28px 20px;text-align:center;border-bottom:1px solid #1f1b17}
-header h1{font-family:'Cormorant Garamond';font-size:32px;letter-spacing:4px}header h1 span{color:#d4af7a}
-header p{font-size:11px;letter-spacing:3px;color:#8a7a6a;margin-top:6px;text-transform:uppercase}
-.wrap{max-width:980px;margin:0 auto;padding:20px;display:grid;grid-template-columns:1fr;gap:20px}
-@media(min-width:900px){.wrap{grid-template-columns:1.2fr.8fr}}
+header{padding:26px;text-align:center;border-bottom:1px solid #1f1b17}
+header h1{font-family:'Cormorant Garamond';font-size:30px;letter-spacing:3px}header h1 span{color:#d4af7a}
+.wrap{max-width:1000px;margin:0 auto;padding:18px;display:grid;gap:18px;grid-template-columns:1fr}
+@media(min-width:900px){.wrap{grid-template-columns:1.15fr.85fr}}
 .card{background:#151210;border:1px solid #24201c;border-radius:20px;padding:20px}
-#preview{width:100%;border-radius:14px;background:#000;display:block;min-height:300px;object-fit:contain}
-.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
-.btn{padding:13px 18px;border-radius:12px;border:0;font-weight:600;cursor:pointer;font-size:14px}
-.btn-gold{background:linear-gradient(135deg,#e8c88a,#c99a5b);color:#1a1310;flex:1}
+.upload{border:2px dashed #3a322b;border-radius:16px;padding:32px;text-align:center;cursor:pointer;display:block}
+#preview{width:100%;border-radius:14px;margin-top:12px;display:none;background:#000}
+.btn{padding:14px 18px;border-radius:12px;border:0;font-weight:700;cursor:pointer;width:100%;margin:7px 0;font-size:15px}
+.btn-gold{background:linear-gradient(135deg,#e8c88a,#c99a5b);color:#1a1310}
 .btn-dark{background:#24201c;color:#fff;border:1px solid #332d27}
-.btn-manual{width:100%;background:transparent;border:1px dashed #5a4d40;color:#d4af7a;padding:14px;border-radius:12px;margin-top:10px;cursor:pointer;font-weight:600}
-input[type=file]{display:none}
-.upload{border:2px dashed #3a322b;border-radius:16px;padding:36px;text-align:center;cursor:pointer;display:block}
-.upload:hover{border-color:#d4af7a}
-.bgrow{display:flex;gap:8px;margin-top:12px}.bg{flex:1;height:52px;border-radius:10px;border:2px solid transparent;cursor:pointer}.bg.active{border-color:#d4af7a}
-.editor{display:none;margin-top:16px;border-top:1px solid #24201c;padding-top:16px}
-.editor.open{display:block}
-.slider{margin:12px 0}.slider label{display:flex;justify-content:space-between;font-size:12px;color:#a99a8a;margin-bottom:6px;text-transform:uppercase;letter-spacing:1px}
+.btn-manual{background:transparent;border:1px dashed #5a4d40;color:#d4af7a}
+.loader{display:none;color:#d4af7a;text-align:center;margin:10px;font-size:14px}
+.bgs{display:flex;gap:8px;margin:12px 0}.bg{flex:1;height:52px;border-radius:10px;border:2px solid transparent;cursor:pointer}.bg.active{border-color:#d4af7a}
+.editor{margin-top:10px;border-top:1px solid #24201c;padding-top:12px}
+.sec{font-size:11px;letter-spacing:2px;color:#d4af7a;margin:16px 0 6px;text-transform:uppercase}
+.slider{margin:10px 0}.slider label{display:flex;justify-content:space-between;font-size:12px;color:#a99a8a;margin-bottom:5px;text-transform:uppercase}
 .slider input{width:100%;accent-color:#d4af7a}
-.presets{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
-.preset{background:#24201c;border:1px solid #332d27;color:#fff;padding:8px 12px;border-radius:20px;font-size:12px;cursor:pointer}
-.section{font-size:11px;letter-spacing:2px;color:#d4af7a;margin:18px 0 6px;text-transform:uppercase}
-canvas{display:none}
+.presets{display:flex;gap:8px;flex-wrap:wrap}.preset{background:#24201c;border:1px solid #332d27;color:#fff;padding:8px 12px;border-radius:20px;font-size:12px;cursor:pointer}
+input[type=file]{display:none}
 </style>
 </head>
 <body>
-<header><h1>AURA <span>PRODUCT STUDIO</span></h1><p>Editor profesional</p></header>
+<header><h1>AURA <span>PRODUCT STUDIO IA</span></h1><p style="font-size:11px;letter-spacing:3px;color:#8a7a6a">EDICIÓN PROFESIONAL COMPLETA</p></header>
 <div class="wrap">
 <div class="card">
-<label class="upload" for="in">📸<br><b>Subir foto</b><br><small style="color:#8a7a6a">Click para elegir</small></label>
+<label class="upload" for="in">📸<br><b>Subir foto</b><br><small style="color:#8a7a6a">Borrosa o con fondo feo, la IA la arregla</small></label>
 <input type=file id=in accept="image/*">
+<div class="loader" id="load">🧠 IA procesando...<br>Quitando fondo + mejorando a 3200px<br><small>20-40 seg la primera vez</small></div>
 <img id=preview>
-<canvas id=c></canvas>
-<div class="toolbar">
-<button class="btn btn-gold" onclick="autoPro()">✨ Mejorar IA Pro</button>
-<button class="btn btn-dark" onclick="descargar()">Descargar HD</button>
-</div>
-<button class="btn-manual" onclick="document.getElementById('ed').classList.toggle('open')">🛠️ Editar manualmente...</button>
-<div class="bgrow">
+<canvas id=c style="display:none"></canvas>
+<div class="bgs">
 <div class="bg active" style="background:#fff" onclick="setBG('#ffffff',this)"></div>
 <div class="bg" style="background:#f6efe6" onclick="setBG('#f6efe6',this)"></div>
 <div class="bg" style="background:radial-gradient(circle,#fff,#999)" onclick="setBG('studio',this)"></div>
 <div class="bg" style="background:#111" onclick="setBG('#111111',this)"></div>
 </div>
+<button class="btn btn-gold" onclick="mejorarIA()">✨ MEJORAR CON IA PRO</button>
+<button class="btn btn-manual" onclick="document.getElementById('ed').style.display=document.getElementById('ed').style.display=='none'?'block':'none'">🛠️ Editar manualmente...</button>
+<button class="btn btn-dark" onclick="descargar()">⬇ Descargar HD 3200px</button>
 </div>
-
 <div class="card">
-<div style="font-weight:700;margin-bottom:8px">Editor manual</div>
-<small style="color:#8a7a6a">Como Lightroom, todo en tiempo real</small>
-<div id=ed class="editor open">
-<div class="section">Luz</div>
-<div class=slider><label>Exposición <span id=v-exp>0</span></label><input type=range id=s-exp min=-100 max=100 value=12 oninput="upd()"></div>
-<div class=slider><label>Contraste <span id=v-con>0</span></label><input type=range id=s-con min=-100 max=100 value=8 oninput="upd()"></div>
-<div class=slider><label>Iluminaciones <span id=v-hi>0</span></label><input type=range id=s-hi min=-100 max=100 value=-15 oninput="upd()"></div>
-<div class=slider><label>Sombras <span id=v-sh>0</span></label><input type=range id=s-sh min=-100 max=100 value=25 oninput="upd()"></div>
-<div class=slider><label>Blancos <span id=v-wh>0</span></label><input type=range id=s-wh min=-100 max=100 value=10 oninput="upd()"></div>
-<div class=slider><label>Negros <span id=v-bl>0</span></label><input type=range id=s-bl min=-100 max=100 value=-10 oninput="upd()"></div>
-<div class="section">Color</div>
-<div class=slider><label>Temperatura <span id=v-temp>0</span></label><input type=range id=s-temp min=-100 max=100 value=8 oninput="upd()"></div>
-<div class=slider><label>Saturación <span id=v-sat>0</span></label><input type=range id=s-sat min=-100 max=100 value=12 oninput="upd()"></div>
-<div class=slider><label>Vibrancia <span id=v-vib>0</span></label><input type=range id=s-vib min=-100 max=100 value=15 oninput="upd()"></div>
-<div class="section">Detalle</div>
-<div class=slider><label>Nitidez <span id=v-sha>0</span></label><input type=range id=s-sha min=0 max=100 value=20 oninput="upd()"></div>
-<div class=slider><label>Viñeta <span id=v-vig>0</span></label><input type=range id=s-vig min=-100 max=100 value=-12 oninput="upd()"></div>
-<div class="section">Presets pro</div>
+<div style="font-weight:700">Editor manual pro</div>
+<small style="color:#8a7a6a">Estilo Lightroom, se aplica después de la IA</small>
+<div id=ed class="editor">
+<div class="sec">Luz</div>
+<div class=slider><label>Exposición <span id=v-exp>12</span></label><input type=range id=s-exp min=-100 max=100 value=12 oninput="updVals()"></div>
+<div class=slider><label>Contraste <span id=v-con>10</span></label><input type=range id=s-con min=-100 max=100 value=10 oninput="updVals()"></div>
+<div class=slider><label>Iluminaciones <span id=v-hi>-15</span></label><input type=range id=s-hi min=-100 max=100 value=-15 oninput="updVals()"></div>
+<div class=slider><label>Sombras <span id=v-sh>25</span></label><input type=range id=s-sh min=-100 max=100 value=25 oninput="updVals()"></div>
+<div class=slider><label>Blancos <span id=v-wh>10</span></label><input type=range id=s-wh min=-100 max=100 value=10 oninput="updVals()"></div>
+<div class=slider><label>Negros <span id=v-bl>-10</span></label><input type=range id=s-bl min=-100 max=100 value=-10 oninput="updVals()"></div>
+<div class="sec">Color</div>
+<div class=slider><label>Temperatura <span id=v-temp>8</span></label><input type=range id=s-temp min=-100 max=100 value=8 oninput="updVals()"></div>
+<div class=slider><label>Saturación <span id=v-sat>14</span></label><input type=range id=s-sat min=-100 max=100 value=14 oninput="updVals()"></div>
+<div class=slider><label>Vibrancia <span id=v-vib>15</span></label><input type=range id=s-vib min=-100 max=100 value=15 oninput="updVals()"></div>
+<div class="sec">Detalle / Píxeles</div>
+<div class=slider><label>Nitidez IA <span id=v-sha>45</span></label><input type=range id=s-sha min=0 max=100 value=45 oninput="updVals()"></div>
+<div class=slider><label>Viñeta <span id=v-vig>-12</span></label><input type=range id=s-vig min=-100 max=100 value=-12 oninput="updVals()"></div>
+<div class=slider><label>Resolución salida</label><select id=res style="width:100%;padding:10px;background:#24201c;color:#fff;border-radius:8px;border:1px solid #333"><option value=3200>3200px Ultra HD</option><option value=2000>2000px HD</option><option value=1080>1080px Redes</option></select></div>
+<div class="sec">Presets</div>
 <div class=presets>
-<button class=preset onclick="preset('ecommerce')">E-commerce limpio</button>
+<button class=preset onclick="preset('ecommerce')">E-commerce</button>
 <button class=preset onclick="preset('beauty')">Beauty glow</button>
 <button class=preset onclick="preset('lujo')">Lujo oscuro</button>
-<button class=preset onclick="reset()">Reset</button>
+<button class=preset onclick="resetSliders()">Reset</button>
+</div>
+<button class="btn btn-dark" style="margin-top:14px" onclick="recomponer()">Aplicar ajustes manuales</button>
 </div>
 </div>
 </div>
-</div>
-<script>
-let img=new Image(),bg='#ffffff',S=1600;
+<script type="module">
+import { removeBackground } from "https://cdn.jsdelivr.net/npm/@imgly/background-removal-js@1.5.5/+esm";
+let origFile=null, cutoutBlob=null, bg='#ffffff', lastCutUrl=null;
 const $=id=>document.getElementById(id);
-$('in').onchange=e=>{img.src=URL.createObjectURL(e.target.files[0]);img.onload=()=>{upd();}};
-function setBG(v,el){bg=v;document.querySelectorAll('.bg').forEach(b=>b.classList.remove('active'));el.classList.add('active');upd();}
-function g(id){return parseInt($(id).value)}
-function upd(){
- if(!img.src)return;
- ['exp','con','hi','sh','wh','bl','temp','sat','vib','sha','vig'].forEach(k=>{ $('v-'+k).textContent=$('s-'+k).value });
- const c=$('c'),x=c.getContext('2d');c.width=S;c.height=S;
- if(bg==='studio'){let gr=x.createRadialGradient(S/2,S/2,100,S/2,S/2,S);gr.addColorStop(0,'#fff');gr.addColorStop(1,'#bdbdbd');x.fillStyle=gr;} else x.fillStyle=bg;
+$('in').onchange=e=>{origFile=e.target.files[0]; if(!origFile) return; const p=$('preview'); p.src=URL.createObjectURL(origFile); p.style.display='block';};
+window.setBG=(v,el)=>{bg=v; document.querySelectorAll('.bg').forEach(b=>b.classList.remove('active')); if(el) el.classList.add('active'); if(cutoutBlob) componer();};
+function updVals(){['exp','con','hi','sh','wh','bl','temp','sat','vib','sha','vig'].forEach(k=>{const el=$('s-'+k); if(el) $('v-'+k).textContent=el.value;});}
+window.mejorarIA=async()=>{
+ if(!origFile) return alert('Subí una foto primero');
+ $('load').style.display='block';
+ try{ cutoutBlob=await removeBackground(origFile); await componer(); }catch(err){ alert('Error IA: '+err.message); }
+ $('load').style.display='none';
+};
+window.recomponer=()=>{ if(!cutoutBlob) return alert('Primero tocá MEJORAR CON IA PRO'); componer(); };
+async function componer(){
+ const S=parseInt($('res').value)||3200;
+ const c=$('c'), x=c.getContext('2d'); c.width=S; c.height=S;
+ if(bg==='studio'){ let gr=x.createRadialGradient(S/2,S/2,100,S/2,S/2,S); gr.addColorStop(0,'#ffffff'); gr.addColorStop(1,'#9a9a9a'); x.fillStyle=gr; } else x.fillStyle=bg;
  x.fillRect(0,0,S,S);
- const exp=g('s-exp')/100, con=1+g('s-con')/250, sat=1+g('s-sat')/120, temp=g('s-temp');
- let bri=1+exp*0.6+g('s-sh')/400 - g('s-hi')/600;
- x.filter=`brightness(${bri.toFixed(2)}) contrast(${con.toFixed(2)}) saturate(${sat.toFixed(2)})`;
- x.shadowColor='rgba(0,0,0,0.28)';x.shadowBlur=60;x.shadowOffsetY=35;
- const pad=S*0.15,r=Math.min((S-pad*2)/img.width,(S-pad*2)/img.height),dw=img.width*r,dh=img.height*r;
- x.drawImage(img,(S-dw)/2,(S-dh)/2.9,dw,dh);
- x.filter='none';x.shadowColor='transparent';
- // temperatura simple overlay
- if(temp!==0){x.fillStyle=temp>0?`rgba(255,180,80,${temp/500})`:`rgba(80,150,255,${-temp/500})`;x.fillRect(0,0,S,S);}
- // viñeta
- const vg=g('s-vig'); if(vg!==0){let v=x.createRadialGradient(S/2,S/2,S*0.3,S/2,S/2,S*0.75);v.addColorStop(0,'rgba(0,0,0,0)');v.addColorStop(1,`rgba(0,0,0,${Math.abs(vg)/350})`);x.fillStyle=v;x.fillRect(0,0,S,S);}
- $('preview').src=c.toDataURL('image/jpeg',0.94);
+ const img=new Image(); img.src=URL.createObjectURL(cutoutBlob); await new Promise(r=>img.onload=r);
+ const g=id=>parseInt($(id).value);
+ const exp=g('s-exp')/100, con=1+g('s-con')/250, sat=1+g('s-sat')/120, vib=g('s-vib')/200;
+ const bri=1+exp*0.6+g('s-sh')/400 - g('s-hi')/600 + g('s-wh')/800;
+ const temp=g('s-temp');
+ x.imageSmoothingEnabled=true; x.imageSmoothingQuality='high';
+ x.filter=`brightness(${bri.toFixed(3)}) contrast(${con.toFixed(3)}) saturate(${(sat+vib).toFixed(3)})`;
+ x.shadowColor='rgba(0,0,0,0.32)'; x.shadowBlur=S*0.03; x.shadowOffsetY=S*0.02;
+ const pad=S*0.16, r=Math.min((S-pad*2)/img.width,(S-pad*2)/img.height), dw=img.width*r, dh=img.height*r;
+ x.drawImage(img,(S-dw)/2,(S-dh)/2,dw,dh);
+ x.filter='none'; x.shadowColor='transparent';
+ if(temp!==0){ x.fillStyle=temp>0?`rgba(255,175,80,${temp/500})`:`rgba(80,150,255,${-temp/500})`; x.fillRect(0,0,S,S); }
+ const vg=g('s-vig'); if(vg!==0){ let v=x.createRadialGradient(S/2,S/2,S*0.3,S/2,S/2,S*0.75); v.addColorStop(0,'rgba(0,0,0,0)'); v.addColorStop(1,`rgba(0,0,0,${Math.abs(vg)/350})`); x.fillStyle=v; x.fillRect(0,0,S,S); }
+ mejoraPixeles(x,S,g('s-sha')/100);
+ $('preview').src=c.toDataURL('image/jpeg',0.93); $('preview').style.display='block';
 }
-function autoPro(){ $('s-exp').value=12;$('s-con').value=8;$('s-hi').value=-15;$('s-sh').value=25;$('s-wh').value=10;$('s-bl').value=-10;$('s-temp').value=8;$('s-sat').value=12;$('s-vib').value=15;$('s-sha').value=20;$('s-vig').value=-12;upd();}
+function mejoraPixeles(ctx,S,amt){
+ if(amt<=0) return;
+ try{
+ const id=ctx.getImageData(0,0,S,S), d=id.data, cp=new Uint8ClampedArray(d);
+ for(let y=2;y<S-2;y+=3){ for(let x2=2;x2<S-2;x2+=3){ const i=(y*S+x2)*4;
+  for(let k=0;k<3;k++){ const avg=(cp[i+k-S*4]+cp[i+k+S*4]+cp[i+k-4]+cp[i+k+4])/4;
+   let v=cp[i+k]+(cp[i+k]-avg)*(amt*1.4); d[i+k]=v<0?0:v>255?255:v; } } }
+ ctx.putImageData(id,0,0);
+ }catch(e){}
+}
 function preset(p){
- if(p==='ecommerce')autoPro();
- if(p==='beauty'){$('s-exp').value=18;$('s-sat').value=18;$('s-temp').value=15;$('s-sh').value=30;$('s-vig').value=-20;upd();}
- if(p==='lujo'){setBG('#111111',document.querySelectorAll('.bg')[3]);$('s-exp').value=5;$('s-con').value=25;$('s-sat').value=5;$('s-vig').value=-40;upd();}
+ const s=id=>$('s-'+id);
+ if(p==='ecommerce'){ s('exp').value=12;s('con').value=10;s('hi').value=-15;s('sh').value=25;s('sat').value=14;s('temp').value=8;s('vig').value=-12; }
+ if(p==='beauty'){ s('exp').value=18;s('con').value=6;s('sat').value=20;s('temp').value=14;s('sh').value=32;s('vig').value=-20; }
+ if(p==='lujo'){ setBG('#111111',document.querySelectorAll('.bg')[3]); s('exp').value=6;s('con').value=28;s('sat').value=6;s('vig').value=-38; }
+ updVals(); recomponer();
 }
-function reset(){document.querySelectorAll('input[type=range]').forEach(i=>i.value=0);upd();}
-function descargar(){let a=document.createElement('a');a.download='aura-pro.jpg';a.href=$('preview').src;a.click();}
+window.preset=preset;
+window.resetSliders=()=>{ document.querySelectorAll('input[type=range]').forEach(i=>i.value=0); updVals(); recomponer(); };
+window.descargar=()=>{ const a=document.createElement('a'); a.download='aura-pro-3200px.jpg'; a.href=$('preview').src; a.click(); };
+updVals();
 </script>
 </body>
 </html>
